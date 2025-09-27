@@ -1,0 +1,212 @@
+{% extends 'base.html'%}
+{% block page_title %}
+<h5>All....</h5>
+{% endblock page_title %}
+{% block main_content %}
+{% load static %}
+<html>
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/jquery.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/fontawesome/css/all.min.css' %}">
+	<script src="https://kit.fontawesome.com/dedc8ebf34.js" crossorigin="anonymous"></script>
+
+	<style>
+		.auth-box {
+			background: rgba(255, 255, 255, 0.087);
+		}
+		body {
+			margin: 0;
+			padding: 0;
+			/* background:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7_3c7yrPY5gWKW8R50KETpRXUNH7BdCyxwFsAMEFBrzI_pe-cb-D-qJ_MFwDL8hdQ0B8&usqp=CAU); */
+			/* background:rgb(255, 255, 255); */
+			background: url(https://cdn.wallpapersafari.com/70/37/zQbXdt.jpg);
+			background-position: center;
+			background-repeat: no-repeat;
+			background-attachment: scroll;
+			background-size: cover;
+		}
+		.input-group {
+			width: 260px !important;
+		}
+		input[type="text"],
+		input[type="password"] {
+			border: 0;
+			background: none;
+			padding: 10px 10px;
+			border: 1px solid #000000;
+			width: 100px !important;
+			border-left: none !important;
+			outline: none !important;
+			height: 45px;
+			border-radius: 24px;
+			color: #000000 !important;
+			transition: 0.25s;
+		}
+		span {
+			border: 1px solid #000000 !important;
+			border-right: none !important;
+			border-top-left-radius: 24px !important;
+			border-bottom-left-radius: 24px !important;
+			background: #86caf8 !important;
+			width: 50px !important;
+		}
+		i {
+			color: rgb(53, 53, 53);
+			margin-left: 7px;
+		}
+		.loop {
+			margin-top: 50px !important;
+		}
+		.profile-header2,
+		.br-n {
+			height: 10.75rem important;
+			background: url(https://jobs.newscientist.com/getasset/0f3de168-cdc2-410a-be98-ff892b0f6dab/) !important;
+			/* background:linear-gradient(to right,#44368a ,#445a80)!important; */
+			/* background: linear-gradient(to right,#641eff 0,#a307dd 100%); */
+			/* background: linear-gradient(40deg, #2096ff, #05ffa3) !important; */
+			background-repeat: no-repeat !important;
+			background-size: cover !important;
+			background-position: center;
+			color: rgb(255, 255, 255) !important;
+		}
+		.profile-header2::after {
+			position: absolute;
+			content: '';
+			height: 560px;
+			background: rgba(26, 27, 61, 0.9) !important;
+			top: 0;
+			left: 0;
+			width: 97.5%;
+			z-index: 10;
+		}
+		.col-md-6 {
+			z-index: 87;
+		}
+		/* .profile-header2 p {} */
+		button[type="submit"] {
+			border: 0;
+			background: none;
+			display: block;
+			margin: 20px auto;
+			text-align: center;
+			border: 2px solid #2ecc71;
+			padding: 14px 40px;
+			outline: none;
+			color: rgb(0, 0, 0);
+			border-radius: 24px;
+			transition: 0.25s;
+			cursor: pointer;
+			background: #4db2f5 !important;
+		}
+		button[type="submit"]:hover {
+			background: #86caf8 !important;
+		}
+		.input-group:focus {
+			width: 590px !important;
+			border-color: #ebdada;
+			outline: none !important;
+		}
+		/* .major {} */
+		.mayooh {
+			border: 2px solid white !important;
+
+		}
+		.card {
+			display: flex !important;
+			flex-direction: column !important;
+			justify-content: center !important;
+			align-items: center !important;
+			border-radius: 30px !important;
+			background: rgba(100, 178, 182, 0) !important;
+		}
+		.text-muted,
+		.text-secondary {
+			color: rgb(63, 63, 63) !important;
+		}
+		.logo {
+			border-radius: 50%;
+		}
+	</style>
+</head>
+<body>
+	<div class="more p mt-3">
+		<div class="row  loop">
+			<div class="col-md-4 container">
+				<div class="card justify-content-center py-5 bg-light">
+					<!-- <div class=""> -->
+						<div class="text-center">
+							<img class="logo" src="{% static 'images/rn.jpg'%}" width="150" height="130"
+								alt="Imgage Not Found">
+							<h3 class="mb-4 fw-300 text-dark">RN Pharma</h3>
+						</div>
+						<div>
+							{% if messages %}
+							<div class="form-group">
+								<div class="col-12">
+									{% for message in messages %} {% if message.tags == "error" %}
+									<div class="col-sm-12 ">
+										<div class="alert fade alert-simple alert-danger alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light brk-library-rendered rendered show mt-1 "
+											role="alert" data-brk-library="component__alert">
+											<button type="button" class="close font__size-18" data-dismiss="alert">
+												<span aria-hidden="true">
+													<i class="fa fa-times danger "></i>
+												</span> <span class="sr-only">Close</span> </button> <i
+												class="start-icon far fa-times-circle faa-pulse animated"></i> <strong
+												class="font__weight-semibold">Oh snap!</strong> {{message}}
+										</div>
+									</div> {% elif message.tags == "success" %}
+									<div
+										class="alert fade alert-simple alert-success alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light brk-library-rendered rendered show mt-1">
+										<button type="button" class="close font__size-18" data-dismiss="alert"> <span
+												aria-hidden="true">
+												<i class="fa fa-times greencross"></i>
+												</a></span> <span class="sr-only">Close</span> </button> <i
+											class="start-icon far fa-check-circle faa-tada animated"></i> <strong
+											class="font__weight-semibold">Well done!</strong> {{message}}
+									</div> {% endif %} {% endfor %}
+								</div>
+							</div> {% endif %}
+							<form class="input-light" method="POST">
+								{% csrf_token %}
+								<div class=" ">
+									<div class="form-group ">
+										<!-- <label for=""class="text-muted">Username</label> -->
+										<div class="input-group ">
+											<div class="input-group-prepend">
+												<span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+											</div>
+											<input type="text" class="form-control" name="username"
+												placeholder="Username">
+										</div>
+									</div>
+									<div class="form-group">
+										<!-- <label for="" class="text-muted">Password</label> -->
+										<div class="input-group mb-1">
+											<div class="input-group-prepend">
+												<span class="input-group-text"><i class="fas fa-lock"></i></span>
+											</div>
+											<input type="password" class="form-control" name="password"
+												placeholder="Password">
+										</div>
+									</div>
+								</div>
+								<div class="form-group ">
+									<div class="custom-control custom-checkbox">
+										<a class="text-secondary" href="{% url 'forgot_password' %}">Forgot Password</a>
+										 <a class="text-secondary" href="{% url 'signup' %}">Sign Up</a>
+									</div>
+									<div class="form-group">
+										<button class="btn btn-primary" type="submit">Login</button>
+									</div>
+							</form>
+						</div>
+					<!-- </div> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+{% endblock main_content %}
