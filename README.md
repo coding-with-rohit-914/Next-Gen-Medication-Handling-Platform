@@ -79,8 +79,3 @@
 ### Procfile: web: gunicorn  pharm.wsgi --log-file -
 
 ### RunTime: python-3.9.6
-
-
-fobo@mailinator.com
-nabykemede@mailinator.com
-xidaqeb@mailinator.com
